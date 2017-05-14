@@ -68,7 +68,7 @@ socket.on('request', function(request) {
 	}, 5);
 
 	connection.on('close', function() {
-		stats.getRequests--;
+		console.log("client disconnected");
 	});
 });
 
