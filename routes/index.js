@@ -22,7 +22,7 @@ var stats = {
 function getStats(req, res, next) {
 
 	stats.totalRequests++;
-
+	console.log('connection received');
 	incStats(req.method);
 
 	next();

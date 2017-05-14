@@ -49,3 +49,6 @@ Happy hacking, and have fun!
   * Run npm install --save in terminal
   * Run npm start in terminal
   * Open localhost:3000 in browser
+  * Goto stats from navbar
+  * Run following command in terminal to make 10 get requests
+    - bash req.sh 10
