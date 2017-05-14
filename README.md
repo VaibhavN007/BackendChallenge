@@ -37,3 +37,15 @@ Here are somethings we're watching out for:
 If you're up for the challenge, fork this repository and complete your entire solution there. Feel free to use any stack of your choice, and we're open to partial feature submissions as well. Just see it as an opportunity to know each other technically.
 
 Happy hacking, and have fun!
+
+## Requirements
+
+  * Node.js
+  * npm
+
+## How to run
+
+  * CLone the directory
+  * Run npm install --save in terminal
+  * Run npm start in terminal
+  * Open localhost:3000 in browser
