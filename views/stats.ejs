@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>STATS</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel='stylesheet' href='/stylesheets/style.css' />
+	</head>
+	<body>
+		<nav>
+			<ul>
+				<li><a href="/">HOME</a></li>
+				<li>/</li>
+				<li><a href="/process/">PROCESS</a></li>
+				<li>/</li>
+				<li><a href="/stats">STATS</a></li>
+			</ul>
+			<hr>
+		</nav>
+		<center>
+			<h2>STATS</h2>
+			<label for="totalReq">Total Requests : </label><span id="totalReq">0</span>
+			<br><br>
+			<label for="getReq">GET Requests : </label><span id="getReq">0</span>
+			<br><br>
+			<label for="postReq">POST Requests : </label><span id="postReq">0</span>
+			<br><br>
+			<label for="putReq">PUT Requests : </label><span id="putReq">0</span>
+			<br><br>
+			<label for="deleteReq">DELETE Requests : </label><span id="deleteReq">0</span>
+		</center>
+	  	<footer><center>Made with <span>&#10084;</span> by vaibhav</center></footer>
+
+		<script>
+			var content = document.getElementById('content');
+			var socket = new WebSocket('ws://localhost:8888');
+			var totalReq = document.querySelector('#totalReq');
+			var getReq = document.querySelector('#getReq');
+			var postReq = document.querySelector('#postReq');
+			var putReq = document.querySelector('#putReq');
+			var deleteReq = document.querySelector('#deleteReq');
+
+			socket.onopen = function () {
+				socket.send('hello from the client');
+			};
+
+			socket.onmessage = function (message) {
+				var stats = JSON.parse(message.data);
+				totalReq.innerHTML = stats.totalRequests;
+				getReq.innerHTML = stats.getRequests;
+				postReq.innerHTML = stats.postRequests;
+				putReq.innerHTML = stats.putRequests;
+				deleteReq.innerHTML = stats.deleteRequests;
+
+				console.log(stats);
+			};
+
+			socket.onerror = function (error) {
+				console.log('WebSocket error: ' + error);
+			};
+		</script>
+	</body>
+</html>
